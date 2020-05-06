@@ -13,28 +13,28 @@ def test_temptracker_none():
 
 def test_temptracker_basic():
     TT = TempTracker()
-    temperatures = [0, 108, 27, 135]
+    temperatures = [0, 108, 27, 93]
     for temp in temperatures:
         TT.insert(temp)
     
-    assert TT.temperatures == {0:1, 108:1, 27:1, 135:1}
-    assert TT.get_max() == 135
+    assert TT.temperatures == {0:1, 108:1, 27:1, 93:1}
+    assert TT.get_max() == 108
     assert TT.get_min() == 0
-    assert TT.get_mean() == 67.5
+    assert TT.get_mean() == 57.0
 
 def test_temptracker_multiple_temps():
     TT = TempTracker()
-    temperatures = [0, 0, 36, 36, 36, 36, 2, 122, 93, 139, 140, 78, 93]
+    temperatures = [0, 0, 36, 36, 36, 36, 2, 66, 93, 103, 104, 78, 93]
     for temp in temperatures:
         TT.insert(temp)
     
-    assert TT.temperatures == {0:2, 36:4, 2:1, 122:1, 93:2, 139:1, 140:1, 78:1}
-    assert TT.get_max() == 140
+    assert TT.temperatures == {0:2, 36:4, 2:1, 66:1, 93:2, 103:1, 104:1, 78:1}
+    assert TT.get_max() == 104
     assert TT.get_min() == 0
-    assert TT.get_mean() == 62.4
+    assert TT.get_mean() == 52.5
 
 def test_temptracker_fail():
     TT = TempTracker()
     with pytest.raises(ValueError):
-        TT.insert(141)
+        TT.insert(111)
 

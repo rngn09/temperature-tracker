@@ -5,7 +5,7 @@ class TempTracker():
         """Initializes the object"""
 
         self.temperatures = dict()
-        self.min_temp = 140
+        self.min_temp = 110
         self.max_temp = 0
 
     def insert(self, temp):
@@ -16,7 +16,7 @@ class TempTracker():
         :type temp: int
         """
         # check if given temp in valid range
-        if temp < 0 or temp > 140:
+        if temp < 0 or temp > 110:
             msg = "Temperature out of range: {}".format(temp)
             raise ValueError(msg)
 
